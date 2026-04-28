@@ -351,8 +351,30 @@ export default function App() {
                 </span>
                 
                 <motion.div 
-                  className="relative z-0 timer-text text-[120px] md:text-[200px] font-medium tracking-tighter text-neutral-50 leading-none select-none transition-all duration-700 w-fit mx-auto px-0"
+                  animate={isRunning ? { 
+                    boxShadow: [
+                      "inset 0 0 40px rgba(34,211,238,0.05)",
+                      "inset 0 0 80px rgba(34,211,238,0.2)",
+                      "inset 0 0 40px rgba(34,211,238,0.05)"
+                    ]
+                  } : { boxShadow: "inset 0 0 0px rgba(34,211,238,0)" }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="relative z-0 timer-text text-[120px] md:text-[200px] font-medium tracking-tighter text-neutral-50 leading-none select-none transition-all duration-700 w-fit mx-auto px-12 md:px-24 py-8 md:py-12 rounded-[5rem] overflow-hidden"
                 >
+                  {isRunning && (
+                    <motion.div 
+                      initial={{ opacity: 0, rotate: 0 }}
+                      animate={{ 
+                        opacity: [0.2, 0.6, 0.2],
+                        rotate: 360
+                      }}
+                      transition={{ 
+                        opacity: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+                        rotate: { duration: 15, repeat: Infinity, ease: "linear" }
+                      }}
+                      className="absolute inset-[-50%] -z-10 bg-[conic-gradient(from_0deg,transparent,rgba(34,211,238,0.25),transparent)] blur-[80px]"
+                    />
+                  )}
                   {formatTime(timeLeft)}
                 </motion.div>
                 
