@@ -946,13 +946,14 @@ export default function App() {
             >
               <div className="max-w-5xl mx-auto flex flex-col h-full">
                 {/* Horizontal Tab Header */}
-                <div className="px-8 pt-8 md:px-16 md:pt-16 pb-0 space-y-10 shrink-0">
+                <div className="px-4 md:px-16 pt-8 md:pt-16 pb-0 space-y-10 shrink-0 w-full max-w-full overflow-hidden">
                   <header className="space-y-2">
                     <h2 className="text-3xl font-bold tracking-tight text-white/90">Settings</h2>
                     <p className="text-neutral-600 text-[10px] font-bold uppercase tracking-[0.3em]">Configure Atmosphere & Essence</p>
                   </header>
                   
-                  <nav className="inline-flex items-center p-1 bg-neutral-900/50 rounded-2xl border border-white/5 gap-1 overflow-x-auto scrollbar-hide">
+                  <div className="relative w-full overflow-hidden">
+                    <nav className="flex items-center p-1 bg-neutral-900/50 rounded-2xl border border-white/5 gap-1 overflow-x-auto scrollbar-hide w-full max-w-full">
                     {[
                       { id: "focus", label: "Focus", icon: <Target className="w-3.5 h-3.5" /> },
                       { id: "zen", label: "Zen", icon: <Music className="w-3.5 h-3.5" /> },
@@ -988,9 +989,10 @@ export default function App() {
                     ))}
                   </nav>
                 </div>
+              </div>
 
-                {/* Settings Content Area */}
-                <main className="flex-1 p-8 md:p-16 pt-10 overflow-y-auto">
+              {/* Settings Content Area */}
+              <main className="flex-1 p-4 sm:p-8 md:p-16 pt-10 overflow-y-auto w-full max-w-full">
                   <AnimatePresence mode="wait">
                     {settingsTab === "focus" && (
                       <motion.section 
