@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Quicksand", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-neutral-950: #0f0f0f;
+  --color-neutral-900: #141414;
+  --color-neutral-800: #1f1f1f;
+  --color-neutral-700: #2a2a2a;
+  --color-neutral-50: #d9d9d9;
+  
+  --color-primary-blue: #305284;
+  --color-primary-cyan: #22d3ee;
+  
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+}
+
+:root {
+  background-color: var(--color-neutral-950);
+  color: var(--color-neutral-50);
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.timer-text {
+  font-family: var(--font-mono);
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@layer utilities {
+  .pulse-glow {
+    box-shadow: 0 0 40px rgba(34, 211, 238, 0.2);
+    animation: glow-pulse 3s infinite ease-in-out;
+  }
+
+  .bg-animate-gradient {
+    background: linear-gradient(-45deg, #050505, #0a0a0a, #050505, #000000);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(34, 211, 238, 0.3);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.1); }
+  50% { box-shadow: 0 0 50px rgba(34, 211, 238, 0.4); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
