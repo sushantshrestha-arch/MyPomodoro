@@ -340,7 +340,7 @@ export default function App() {
               className="flex-1 flex flex-col items-center justify-center p-6 md:p-8 gap-12 w-full pt-8 md:pt-12 relative"
             >
               {/* Ultra Minimal Timer Section */}
-              <div id="pomodoro-timer" className="text-center w-fit mx-auto flex flex-col items-center gap-8 relative border-b border-white/5 pb-16">
+              <div id="pomodoro-timer" className="text-center w-full max-w-4xl mx-auto flex flex-col items-center gap-4 md:gap-8 relative border-b border-white/5 pb-12 md:pb-16 px-4">
                 <span className={cn(
                   "text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full border mb-0 shadow-sm w-fit",
                   timerMode === "focus" 
@@ -359,7 +359,7 @@ export default function App() {
                     ]
                   } : { boxShadow: "inset 0 0 0px rgba(34,211,238,0)" }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative z-0 timer-text text-[120px] md:text-[200px] font-medium tracking-tighter text-neutral-50 leading-none select-none transition-all duration-700 w-fit mx-auto px-12 md:px-24 py-8 md:py-12 rounded-[5rem] overflow-hidden"
+                  className="relative z-0 timer-text text-[clamp(64px,25vw,120px)] md:text-[200px] font-medium tracking-tighter text-neutral-50 leading-none select-none transition-all duration-700 w-full md:w-fit flex items-center justify-center mx-auto px-4 sm:px-12 md:px-24 py-10 md:py-12 rounded-[2rem] md:rounded-[5rem] overflow-hidden"
                 >
                   {isRunning && (
                     <motion.div 
